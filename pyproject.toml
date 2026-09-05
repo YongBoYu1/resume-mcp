@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "resume-mcp"
 version = "0.1.0"
-description = "MCP server that answers grounded questions about YongBo Yu using his public reputation site."
+description = "stdio MCP server: fetch/cache public resume.json + llms.txt and return tool answers with source URLs."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
