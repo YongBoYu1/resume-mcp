@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "resume-mcp"
+version = "0.1.0"
+description = "MCP server that answers grounded questions about YongBo Yu using his public reputation site."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+  { name = "YongBo Yu", email = "yongbo9852@gmail.com" },
+]
+keywords = ["mcp", "resume", "yongbo-yu", "stdio"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+  "mcp>=1.9,<2",
+  "httpx>=0.27",
+]
+
+[project.urls]
+Homepage = "https://yongbo-yu.vercel.app"
+Repository = "https://github.com/YongBoYu1/resume-mcp"
+"KiloDock" = "https://yongbo-yu.vercel.app/projects/kilodock"
+"Resume JSON" = "https://yongbo-yu.vercel.app/resume.json"
+
+[project.scripts]
+resume-mcp = "resume_mcp.server:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/resume_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/resume_mcp", "README.md", "LICENSE", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
